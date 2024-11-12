@@ -1,33 +1,44 @@
+import { IoAddCircle } from 'react-icons/io5';
+import { Layout } from './components/Layout';
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+import { Modal } from './components/Model';
+import { Kanban } from './components/Kanban';
+import { registerLicense } from '@syncfusion/ej2-base';
+import { BrowserRouter } from 'react-router-dom';
+
+registerLicense('Ngo9BigBOggjHTQxAR8/V1NDaF5cWGtCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWH5eeHVVQ2RdUEBwWUM=')
 import './App.css';
-
+import { Calendar } from './components/Calendar';
+import Router from './router/Router/Router';
 function App() {
-  const [count, setCount] = useState(0);
-
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <div className='bg-black'>
-        <a href='https://vite.dev' target='_blank'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className='card'>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className='read-the-docs'>
-        Click on the Vite and React logos to learn more
-      </p>
+      <Layout>
+        {/* <div className='justify-center flex items-center w-full'> */}
+        {/* <IoAddCircle size={25} onClick={() => setIsOpen(true)}/> */}
+        {/* <Kanban /> */}
+        {/* <Calendar /> */}
+        {/* </div> */}
+
+        {/* {
+        isOpen && (
+          <Modal
+            isOpen={isOpen}
+            onClose={() => setIsOpen(false)}
+            title='Add New Project'
+          >
+            <div>
+              <p>Modal content</p>
+            </div>
+          </Modal>
+        )
+      } */}
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
+      </Layout>
+
     </>
   );
 }
