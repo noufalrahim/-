@@ -6,3 +6,8 @@ export interface MenuItemsData {
     icon: ReactNode;
     children?: MenuItemsData[];
 }
+
+export interface SideBarHeaderProps {
+    title: string;
+    open: boolean;
+}

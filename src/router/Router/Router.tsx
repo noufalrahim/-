@@ -6,8 +6,6 @@ import { NewNote, Notes } from '@/components/Notes';
 
 function Router() {
     const {
-        LOGIN_PATH,
-        ROOT_PATH,
         NOTES_PATH,
         NEW_NOTE_PATH,
         KANBAN_PATH,

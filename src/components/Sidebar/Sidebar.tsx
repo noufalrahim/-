@@ -7,6 +7,8 @@ import { useSidebar } from "../ui/sidebar";
 import { ChevronDown, ChevronUp, KanbanIcon, Notebook, User2 } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible";
+import SideBarHeader from "./SideBarHeader";
+import SideBarFooter from "./SidebarFooter";
 
 export default function AppSidebar() {
 
@@ -52,14 +54,10 @@ export default function AppSidebar() {
 
     return (
         <Sidebar collapsible="icon">
-            <SidebarHeader className="flex justify-between flex-row">
-                {
-                    open && (
-                        <h1 className="text-2xl font-bold text-black">Classmate</h1>
-                    )
-                }
-                <SidebarTrigger />
-            </SidebarHeader>
+            <SideBarHeader 
+                title={'Classmate'}
+                open={open}
+            />
             <SidebarContent>
                 <SidebarGroup>
                     <SidebarGroupLabel>Menu</SidebarGroupLabel>
@@ -109,36 +107,7 @@ export default function AppSidebar() {
                     </SidebarGroup>
                 </Collapsible>   
             </SidebarContent>
-            <SidebarFooter>
-                <SidebarMenu>
-                    <SidebarMenuItem>
-                        <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                                <SidebarMenuButton>
-                                    <User2 /> Username
-                                    <ChevronUp className="ml-auto" />
-                                </SidebarMenuButton>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent
-                                side="top"
-                                className="w-[--radix-popper-anchor-width]"
-                            >
-                                <DropdownMenuItem onClick={() => {
-                                    console.log('Account');
-                                }}>
-                                    <span>Account</span>
-                                </DropdownMenuItem>
-                                <DropdownMenuItem>
-                                    <span>Billing</span>
-                                </DropdownMenuItem>
-                                <DropdownMenuItem>
-                                    <span>Sign out</span>
-                                </DropdownMenuItem>
-                            </DropdownMenuContent>
-                        </DropdownMenu>
-                    </SidebarMenuItem>
-                </SidebarMenu>
-            </SidebarFooter>
+            <SideBarFooter />
         </Sidebar>
     )
 }
